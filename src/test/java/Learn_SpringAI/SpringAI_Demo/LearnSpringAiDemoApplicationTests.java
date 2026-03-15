@@ -1,0 +1,13 @@
+package Learn_SpringAI.SpringAI_Demo;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class LearnSpringAiDemoApplicationTests {
+
+    @Test
+    void contextLoads() {
+    }
+
+}
