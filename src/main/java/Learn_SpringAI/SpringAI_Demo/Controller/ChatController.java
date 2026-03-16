@@ -15,8 +15,13 @@ public class ChatController {
         this.chatService = chatService;
     }
 
-    @GetMapping("/chat")
-    public String chat(String message) {
-       return chatService.chatWithLLMModel(message);
+    @GetMapping("/chat/OpenAI")
+    public String chatWithOpenAIModel(String message) {
+       return chatService.ChatWithOpenAIModel(message);
+    }
+
+    @GetMapping("/chat/LLama")
+    public String chatWithLLamaModel(String message) {
+        return chatService.ChatWithLLamaModel(message);
     }
 }
