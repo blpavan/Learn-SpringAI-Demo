@@ -1,11 +1,15 @@
 package Learn_SpringAI.SpringAI_Demo.Service;
 
+import Learn_SpringAI.SpringAI_Demo.advisors.TokenCountAdvisor;
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.client.advisor.SafeGuardAdvisor;
+import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
 import org.springframework.ai.chat.prompt.PromptTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 
@@ -18,19 +22,32 @@ public class SupportChatService {
     // Inject prompt templates — loaded from .st files via PromptTemplateConfig
     private final PromptTemplate supportUserPrompt;
     private final PromptTemplate escalationUserPrompt;
+    private final PromptTemplate stuffedPrompt;
+
+    private final TokenCountAdvisor tokenCountAdvisor;
 
     @Value("${app.prompts.seniorAgentSystemPrompt}")
     private Resource seniorAgentSystemPrompt;
+
+    List<String> blockedWords = List.of(
+            "confidential", "internal", "secret", "password", "ssn"
+    );
+
 
     public SupportChatService(ChatClient openAIChatClient,
                               ChatClient ollamaChatClient,
                               PromptTemplate supportUserPrompt,
                               PromptTemplate escalationUserPrompt,
-                              PromptTemplate seniorAgentSystemPrompt) {
+                              PromptTemplate stuffedPrompt,
+                              TokenCountAdvisor tokenCountAdvisor) {
+
         this.openAIChatClient = openAIChatClient;
         this.ollamaChatClient = ollamaChatClient;
         this.supportUserPrompt = supportUserPrompt;
         this.escalationUserPrompt = escalationUserPrompt;
+        this.stuffedPrompt = stuffedPrompt;
+        this.tokenCountAdvisor = tokenCountAdvisor;
+
     }
 
     // ── Aria (OpenAI) ────────────────────────────────────────────────────────
@@ -92,6 +109,29 @@ public class SupportChatService {
                 .prompt()
                 .system(systemPrompt)                     // SYSTEM role override from .st file
                 .user(filledUserPrompt)                   // USER role — filled escalation template
+                .call()
+                .content();
+    }
+
+
+    // ── Update stuffedPromptDemo() ──
+    public String stuffedPromptDemo(String message) {
+
+        // Fill {message} placeholder — everything else is already in the .st file
+        String filledStuffedPrompt = stuffedPrompt.render(Map.of(
+                "message", message
+        ));
+
+        return openAIChatClient
+                .prompt()
+                .advisors(new SafeGuardAdvisor(blockedWords),
+                          tokenCountAdvisor,
+                          SimpleLoggerAdvisor
+                                  .builder()
+                                  .order(Integer.MAX_VALUE)
+                                  .build()
+                        )
+                .user(filledStuffedPrompt)
                 .call()
                 .content();
     }

@@ -44,4 +44,15 @@ public class SupportChatController {
         return supportChatService.escalateToSeniorAgent(
                 message, customerName, orderId, priority);
     }
+
+    @Operation(
+            summary = "Prompt Stuffing Demo — dumps entire catalog into prompt",
+            description = "Compare response quality and speed against /aria with the same message"
+    )
+    @GetMapping("/stuffed")
+    public String stuffedDemo(
+            @RequestParam String message) {
+        return supportChatService.stuffedPromptDemo(message);
+    }
+
 }

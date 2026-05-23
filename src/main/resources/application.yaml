@@ -14,8 +14,19 @@ spring:
       chat:
         model: llama3.2
 
+# ── All prompt file paths defined here ──────────────────────────────────────
+app:
+  prompts:
+    ariaSystemPrompt: classpath:prompts/system/aria-system.st
+    maxSystemPrompt: classpath:prompts/system/max-system.st
+    seniorAgentSystemPrompt: classpath:prompts/system/senior-agent-system.st
+    supportUserPrompt: classpath:prompts/user/support-user.st
+    escalationUserPrompt: classpath:prompts/user/escalation-user.st
+    stuffedPrompt: classpath:prompts/prompt_stuffing/stuffedPrompt.st
+
 server:
   port: 8080
+
 
 
 

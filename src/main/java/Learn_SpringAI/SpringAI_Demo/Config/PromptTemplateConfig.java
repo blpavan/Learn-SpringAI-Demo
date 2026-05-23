@@ -2,11 +2,16 @@ package Learn_SpringAI.SpringAI_Demo.Config;
 
 import org.springframework.ai.chat.prompt.PromptTemplate;
 import org.springframework.context.annotation.Bean;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 
 @Configuration
 public class PromptTemplateConfig {
+
+    @Value("${app.prompts.stuffedPrompt}")
+    private Resource stuffedPromptResource;
 
     // ── System Prompt Templates ──────────────────────────────────────────────
 
@@ -45,5 +50,10 @@ public class PromptTemplateConfig {
         return new PromptTemplate(
                 new ClassPathResource("prompts/user/escalation-user.st")
         );
+    }
+
+    @Bean
+    public PromptTemplate stuffedPrompt() {
+        return new PromptTemplate(stuffedPromptResource);
     }
 }
