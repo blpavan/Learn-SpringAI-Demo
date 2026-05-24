@@ -14,6 +14,9 @@ spring:
       chat:
         model: llama3.2
 
+  Jackson:
+    property-naming-strategy: SNAKE_CASE
+
 # ── All prompt file paths defined here ──────────────────────────────────────
 app:
   prompts:
