@@ -2,6 +2,29 @@ spring:
   application:
     name: Learn-SpringAI-Demo
 
+  Jackson:
+    property-naming-strategy: SNAKE_CASE
+
+  # ── MySQL  Configuration ─────────────────────────────────────────
+  DataSource:
+    url: jdbc:mysql://localhost:3306/techdesk
+    username: root
+    password: NewPassword123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # ── Redis Configuration ─────────────────────────────────────────
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+  # ── Cache ──────────────────────────────────────────
+  cache:
+    type: redis
+    redis:
+      time-to-live: 600000       # 10 minutes in milliseconds
+
+
   ai:
     OpenAI:
       api-key: ${OPENAI_API_KEY}
@@ -14,8 +37,20 @@ spring:
       chat:
         model: llama3.2
 
-  Jackson:
-    property-naming-strategy: SNAKE_CASE
+    chat:
+      memory:
+        repository:
+          jdbc:
+            initialize-schema: always
+
+logging:
+    level:
+      org:
+        springframework:
+          ai:
+            chat:
+                client:
+                  advisor: DEBUG
 
 # ── All prompt file paths defined here ──────────────────────────────────────
 app:
@@ -28,7 +63,7 @@ app:
     stuffedPrompt: classpath:prompts/prompt_stuffing/stuffedPrompt.st
 
 server:
-  port: 8080
+  port: 8081
 
 
 
