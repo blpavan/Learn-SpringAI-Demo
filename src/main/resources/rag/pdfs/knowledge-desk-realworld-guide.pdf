@@ -1,0 +1,108 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Length 2397 >>
+stream
+BT
+/F1 11 Tf
+72 750 Td
+14 TL
+/F1 18 Tf
+(KnowledgeDesk IT Support Runbook) Tj
+T*
+/F1 11 Tf
+(Version 1.0 - Internal Knowledge Base) Tj
+T*
+/F1 11 Tf
+T*
+/F1 14 Tf
+(Overview) Tj
+T*
+/F1 11 Tf
+(This runbook helps IT support agents answer common employee support questions. It covers account access, VPN troubleshooting, laptop replacement, software installation, and escalation rules.) Tj
+T*
+/F1 11 Tf
+(Use this document as trusted context when answering KnowledgeDesk RAG questions.) Tj
+T*
+/F1 11 Tf
+T*
+/F1 14 Tf
+(Password Reset Policy) Tj
+T*
+/F1 11 Tf
+(Employees can reset their password from the account security portal. The user must complete multi-factor authentication before choosing a new password.) Tj
+T*
+/F1 11 Tf
+(Temporary passwords expire after 30 minutes. Support agents must never ask users to share their current password in chat, email, or phone calls.) Tj
+T*
+/F1 11 Tf
+T*
+/F1 14 Tf
+(VPN Troubleshooting) Tj
+T*
+/F1 11 Tf
+(If the VPN client fails to connect, ask the user to confirm internet access, restart the VPN client, and verify that device time is synchronized automatically.) Tj
+T*
+/F1 11 Tf
+(If the error code is MFA_TIMEOUT, retry login and approve MFA within 60 seconds. If the error code is CERT_EXPIRED, escalate to endpoint engineering.) Tj
+T*
+/F1 11 Tf
+T*
+/F1 14 Tf
+(Laptop Replacement Workflow) Tj
+T*
+/F1 11 Tf
+(A laptop replacement requires manager approval unless the device is fully unusable. For hardware failure, collect the asset tag, operating system, device model, and failure description.) Tj
+T*
+/F1 11 Tf
+(Standard replacement target is three business days after approval. For executives and customer-facing outage cases, mark the ticket as priority high.) Tj
+T*
+/F1 11 Tf
+T*
+/F1 14 Tf
+(Software Installation Requests) Tj
+T*
+/F1 11 Tf
+(Approved software can be installed from the company self-service portal. Restricted software requires security review before installation.) Tj
+T*
+/F1 11 Tf
+(If a license is required, route the request to procurement after manager approval.) Tj
+T*
+/F1 11 Tf
+T*
+/F1 14 Tf
+(Escalation Rules) Tj
+T*
+/F1 11 Tf
+(Escalate immediately if the issue affects more than 20 users, involves suspected data loss, blocks payroll, or impacts a production customer system.) Tj
+T*
+/F1 11 Tf
+(Security incidents such as phishing, malware alerts, or account compromise must be routed to the security operations queue and marked critical.) Tj
+T*
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000000311 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+2760
+%%EOF

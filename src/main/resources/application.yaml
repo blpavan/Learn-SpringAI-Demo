@@ -2,11 +2,11 @@ spring:
   application:
     name: Learn-SpringAI-Demo
 
-  Jackson:
+  jackson:
     property-naming-strategy: SNAKE_CASE
 
   # ── MySQL  Configuration ─────────────────────────────────────────
-  DataSource:
+  datasource:
     url: jdbc:mysql://localhost:3306/techdesk
     username: root
     password: NewPassword123
@@ -17,6 +17,8 @@ spring:
     redis:
       host: localhost
       port: 6379
+    mongodb:
+      uri: mongodb://root:NewPassword123@localhost:27018/knowledge_desk?authSource=admin
 
   # ── Cache ──────────────────────────────────────────
   cache:
@@ -26,11 +28,24 @@ spring:
 
 
   ai:
-    OpenAI:
+    model:
+      embedding: openai
+
+    vectorstore:
+      qdrant:
+        initialize-schema: true
+        host: localhost
+        port: 6334
+        collection-name: RAG_Example_Collection
+
+    openai:
       api-key: ${OPENAI_API_KEY}
       chat:
         options:
           model: gpt-4o
+      embedding:
+        options:
+          model: text-embedding-3-small
 
     ollama:
       base-url: http://localhost:11434
@@ -43,6 +58,11 @@ spring:
           jdbc:
             initialize-schema: always
 
+  docker:
+    compose:
+      stop:
+        command: down
+
 logging:
     level:
       org:
@@ -54,6 +74,10 @@ logging:
 
 # ── All prompt file paths defined here ──────────────────────────────────────
 app:
+  rag:
+    pdf-location-pattern: classpath*:/rag/pdfs/*.pdf
+    tika-location-patterns: classpath*:/rag/documents/*.pdf,classpath*:/rag/documents/*.docx,classpath*:/rag/documents/*.txt,classpath*:/rag/documents/*.html
+
   prompts:
     ariaSystemPrompt: classpath:prompts/system/aria-system.st
     maxSystemPrompt: classpath:prompts/system/max-system.st

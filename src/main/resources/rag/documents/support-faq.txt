@@ -1,0 +1,12 @@
+KnowledgeDesk Support FAQ
+
+Password resets: Users can reset their password from the account security page.
+If multi-factor authentication is enabled, they must complete MFA verification
+before choosing a new password.
+
+VPN access: Employees should use the company VPN when accessing internal systems
+from outside the office. If the VPN client fails to connect, restart the client,
+confirm network access, and contact support if the issue continues.
+
+Hardware requests: New laptop, monitor, keyboard, and mouse requests require
+manager approval before the IT support team can fulfill the ticket.

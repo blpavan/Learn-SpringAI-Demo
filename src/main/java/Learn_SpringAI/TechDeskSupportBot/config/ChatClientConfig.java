@@ -8,6 +8,7 @@ import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.chat.memory.MessageWindowChatMemory;
 import org.springframework.ai.chat.memory.repository.jdbc.JdbcChatMemoryRepository;
 import org.springframework.ai.openai.OpenAiChatModel;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -24,12 +25,14 @@ public class ChatClientConfig {
     }
 
     @Bean
-    public ChatClient chatClient(OpenAiChatModel openAiChatModel, ChatMemory chatMemory) {
+    public Advisor chatMemoryAdvisor(@Qualifier("chatMemory") ChatMemory chatMemory) {
+        return MessageChatMemoryAdvisor
+                .builder(chatMemory)
+                .build();
+    }
 
-        Advisor chatMemoryAdvisor = MessageChatMemoryAdvisor
-                                        .builder(chatMemory)
-                                        .build();
-
+    @Bean
+    public ChatClient chatClient(OpenAiChatModel openAiChatModel, Advisor chatMemoryAdvisor) {
         return ChatClient.builder(openAiChatModel)
                 .defaultSystem("""
                         You are TechDesk, an IT support assistant.

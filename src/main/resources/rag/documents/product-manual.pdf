@@ -1,0 +1,80 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Length 1119 >>
+stream
+BT
+/F1 11 Tf
+72 750 Td
+15 TL
+/F1 18 Tf
+(KnowledgeDesk Product Manual) Tj
+T*
+/F1 12 Tf
+(Employee Self-Service Support Portal) Tj
+T*
+/F1 11 Tf
+T*
+/F1 14 Tf
+(Ticket Creation) Tj
+T*
+/F1 11 Tf
+(Employees can create tickets for account access, VPN issues, software requests, and hardware problems.) Tj
+T*
+/F1 11 Tf
+(Every ticket should include a short summary, business impact, and affected device or application.) Tj
+T*
+/F1 11 Tf
+T*
+/F1 14 Tf
+(Priority Rules) Tj
+T*
+/F1 11 Tf
+(Low priority tickets are single-user questions with a workaround. Medium priority tickets block one user from normal work.) Tj
+T*
+/F1 11 Tf
+(High priority tickets affect executives, customer-facing work, or multiple employees.) Tj
+T*
+/F1 11 Tf
+T*
+/F1 14 Tf
+(Attachment Policy) Tj
+T*
+/F1 11 Tf
+(Users may attach screenshots, log snippets, and error messages. Agents should avoid requesting secrets, tokens, or passwords.) Tj
+T*
+/F1 11 Tf
+T*
+/F1 14 Tf
+(Knowledge Search) Tj
+T*
+/F1 11 Tf
+(Agents should search the knowledge base before escalating. If no matching article exists, agents should add a resolution note after solving the ticket.) Tj
+T*
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000000311 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1482
+%%EOF
